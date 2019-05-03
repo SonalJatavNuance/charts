@@ -57,7 +57,7 @@ keycloak:
 
   ## Password for the initial Keycloak admin user. Applicable only if existingSecret is not set.
   ## If not set, a random 10 characters password will be used
-  password: ""
+  password: "Nuance@123"
 
   # Specifies an existing secret to be used for the admin password
   existingSecret: ""
@@ -119,11 +119,11 @@ keycloak:
   podAnnotations: {}
 
   livenessProbe:
-    initialDelaySeconds: 120
-    timeoutSeconds: 5
+    initialDelaySeconds: 240
+    timeoutSeconds: 10
   readinessProbe:
-    initialDelaySeconds: 30
-    timeoutSeconds: 1
+    initialDelaySeconds: 120
+    timeoutSeconds: 4
 
   resources: {}
     # limits:
@@ -211,7 +211,7 @@ keycloak:
     deployPostgres: false
 
     # The database vendor. Can be either "postgres", "mysql", "mariadb", or "h2"
-    dbVendor: h2
+    dbVendor: mysql
 
     ## The following values only apply if "deployPostgres" is set to "false"
 
@@ -221,13 +221,13 @@ keycloak:
     # The key in the existing secret that stores the password
     existingSecretKey: password
 
-    dbName: keycloak
-    dbHost: mykeycloak
-    dbPort: 5432
-    dbUser: keycloak
+    dbName: keycloak_mysql
+    dbHost: mysql-cluster-dev
+    dbPort: 3306
+    dbUser: keycloak_mysql
 
     # Only used if no existing secret is specified. In this case a new secret is created
-    dbPassword: ""
+    dbPassword: Nuance@123
 
 postgresql:
   ### PostgreSQL User to create.
