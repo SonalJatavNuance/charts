@@ -6,3 +6,5 @@
 
 # Configure datasource to try all other connections before failing
 /subsystem=datasources/data-source=KeycloakDS/:write-attribute(name=use-fast-fail,value=${env.DB_USE_CAST_FAIL:false})
+
+/subsystem=datasources/data-source=KeycloakDS/:write-attribute(name=useSSL,value=false)
